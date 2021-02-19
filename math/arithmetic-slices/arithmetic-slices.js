@@ -15,7 +15,7 @@ var numberOfArithmeticSlices = function(A) {
             diff = A[i] - A[i-1];
         }
         else if ((A[i] - A[i-1]) != diff) {
-            result = (i-j) >= 3 ? result + getCombinationCount(i-j) : result;
+            result += getCombinationCount(i-j);
             j = i-1;
             diff = A[i] - A[i-1];   
         }
