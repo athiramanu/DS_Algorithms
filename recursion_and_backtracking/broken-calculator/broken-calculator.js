@@ -8,12 +8,10 @@ var brokenCalc = function(X, Y, steps = 0) {
         return steps+X-Y;
     }
     
-    if (X < Y) {
-        Y%2 != 0 && Y++ && steps++
-        Y  = Y/2;
-        steps++;
-        steps = brokenCalc(X,Y,steps);
-    }
+    Y%2 != 0 && Y++ && steps++
+    Y  = Y/2;
+    steps++;
+    steps = brokenCalc(X,Y,steps);
     
     return steps;
 };
