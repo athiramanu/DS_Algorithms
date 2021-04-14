@@ -1,31 +1,16 @@
 /**
- * @param {number} m
- * @param {number} n
+ * @param {number} width
+ * @param {number} height
  * @return {number}
  */
-var uniquePaths = function(m, n) {
-    var result = 0;
-    var map = {};
-    
-    if (m == 1 || n == 1) {
-        return 1;
-    }
-    
-    var rec = function(m, n) {
-        if (map[[m,n]] || m < 1 || n < 1) {
-            return 0;
-        }
+ var uniquePaths = function(width, height) {
+    let matrix = new Array(height).fill(new Array(width).fill(-1));
 
-        if (m == 1 || n == 1) {
-            map[[m,n]] = 1
-            return 1;
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            if (i - 1 < 0 || j - 1 < 0) matrix[i][j] = 1;
+            else matrix[i][j] = matrix[i - 1][j] + matrix[i][j - 1];
         }
-        
-        rec(m-1, n);
-        rec(m, n-1);
-        map[[m,n]] =  map[[m-1,n]] + map[[m,n-1]];
     }
-    rec(m,n);    
-
-    return map[[m,n]];
+    return matrix.pop().pop();
 };
