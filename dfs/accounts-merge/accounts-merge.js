@@ -3,17 +3,10 @@
  * @return {string[][]}
  */
 
- var accountsMerge = function(accounts) {
-    let emailGroups = {};
-    let emailNameMapping = {};
-    let mergedAccounts = [];
-    let finalEmailGroup = {};
-    
-    groupEmailsAndNames(accounts, emailGroups, emailNameMapping);
-    mergeEmailGroups(emailGroups, finalEmailGroup);
-    mergeEmailGroupsToName(emailNameMapping, finalEmailGroup, mergedAccounts);
-    
-    return mergedAccounts;
+ var accountsMerge = function(accounts) {    
+    let [emailGroups, emailNameMapping] = groupEmailsAndNames(accounts);
+    let finalEmailGroup = mergeEmailGroups(emailGroups);
+    return mergeEmailGroupsToName(emailNameMapping, finalEmailGroup);
 };
 
 function getPrimaryEmail(email, emailGroups) {
@@ -23,7 +16,10 @@ function getPrimaryEmail(email, emailGroups) {
     return email;
 }
 
-function groupEmailsAndNames(accounts, emailGroups, emailNameMapping) {
+function groupEmailsAndNames(accounts) {
+    let emailGroups = {};
+    let emailNameMapping = {};
+    
     for (let account of accounts) {
         let name = account[0];
         let primaryEmail = account[1];
@@ -44,9 +40,13 @@ function groupEmailsAndNames(accounts, emailGroups, emailNameMapping) {
             }
         }
     }
+    
+    return [emailGroups, emailNameMapping]
 }
 
-function mergeEmailGroups(emailGroups, finalEmailGroup) {
+function mergeEmailGroups(emailGroups) {
+    let finalEmailGroup = {};
+    
     for (let group in emailGroups) {
         let primaryEmail = getPrimaryEmail(group, emailGroups);
         if (primaryEmail in finalEmailGroup) {
@@ -55,12 +55,18 @@ function mergeEmailGroups(emailGroups, finalEmailGroup) {
             finalEmailGroup[primaryEmail] = new Set([group]);
         }
     }
+    
+    return finalEmailGroup;
 }
 
-function mergeEmailGroupsToName(emailNameMapping, finalEmailGroup, mergedAccounts) {
+function mergeEmailGroupsToName(emailNameMapping, finalEmailGroup) {
+    let mergedAccounts = [];
+    
     for (let group in finalEmailGroup) {
         let emails = [...finalEmailGroup[group]].sort();
         let name = emailNameMapping[group];
         mergedAccounts.push([name, ...emails]);
     }
+    
+    return mergedAccounts;
 }
