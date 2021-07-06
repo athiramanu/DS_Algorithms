@@ -5,3 +5,4 @@
 |[Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) | Medium  |
 |[Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/)| Medium  |
 |[Replace the Substring for Balanced String](https://leetcode.com/problems/replace-the-substring-for-balanced-string/)|Medium|
+|[Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)|Medium|
