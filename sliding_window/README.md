@@ -7,3 +7,4 @@
 |[Replace the Substring for Balanced String](https://leetcode.com/problems/replace-the-substring-for-balanced-string/)|Medium|
 |[Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)|Medium|
 |[Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)|Medium|
+|[Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)|Medium|
