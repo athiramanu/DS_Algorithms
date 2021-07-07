@@ -6,3 +6,4 @@
 |[Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/)| Medium  |
 |[Replace the Substring for Balanced String](https://leetcode.com/problems/replace-the-substring-for-balanced-string/)|Medium|
 |[Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)|Medium|
+|[Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)|Medium|
