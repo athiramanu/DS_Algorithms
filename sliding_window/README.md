@@ -8,3 +8,4 @@
 |[Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)|Medium|
 |[Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)|Medium|
 |[Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)|Medium|
+|[Max Consecutive Ones II](https://leetcode.com/problems/max-consecutive-ones-ii/)|Medium|
