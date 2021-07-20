@@ -9,34 +9,25 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var oddEvenList = function(head) {
-    var length = 0;
-    var tail = head
+ var oddEvenList = function(head) {
     
-    while(tail && tail.next){
+    if (!head) return null;
+    
+    let ptr1 = head, ptr2 = head, length = 0;
+    
+    while(ptr1.next) {
+        ptr1 = ptr1.next;
         length++;
-        tail = tail.next;
-    }
-    length++;
-    
-    var p = head;
-    var temp;
-    var index = 1;
-    
-    if (length <= 2) {
-        return head;
     }
     
-    length  = length % 2 == 0 ? length/2 : (length-1)/2;
+    length = length & 1 ? (length+1)/2 : length/2;
         
-    while (length && p && p.next) {
-        temp = p.next;
-        p.next = temp.next;
-        temp.next = null;
-        tail.next = temp;
-        tail = temp;
-        p = p.next;
-        length--        
+    while (length--) {
+        ptr1.next = ptr2.next;
+        ptr1 = ptr1.next;
+        ptr2.next = ptr2.next.next;
+        ptr2 = ptr2.next;
+        ptr1.next = null;   s
     }
     
     return head;
